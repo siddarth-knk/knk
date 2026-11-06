@@ -1,245 +1,635 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>KNK Mattress | Handmade Mattresses</title>
-    <meta name="description" content="KNK Mattress – Handmade kapok fiber mattresses since 1999. Natural, eco-friendly, orthopedic sleep solutions with free delivery across India.">
+    <title>KNK Mattress | Handmade Organic Kapok Fiber Sleeping Solutions</title>
+    <meta name="description" content="KNK Mattress – Engineering the future of natural sleep with handmade kapok fiber mattresses since 1999. Free delivery across India.">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1a365d',
-                        secondary: '#2c5282',
-                        accent: '#ecc94b',
+                        brand: {
+                            red: '#E53E3E',
+                            'red-hover': '#C53030',
+                            'red-light': '#FFF5F5',
+                            dark: '#111827',
+                            gray: '#4B5563',
+                            'light-gray': '#F3F4F6',
+                            bg: '#FAF9F9',
+                        }
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    },
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
                 }
             }
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-            url('https://picsum.photos/1920/1080?random=101');
+        /* Grid background pattern matching the reference image */
+        .bg-grid-pattern {
+            background-color: #FAF9F9;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
         }
-        .about-bg {
-            background-image: linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)),
-            url('https://picsum.photos/1920/1080?random=102');
+
+        /* Top red bar on modern tech cards */
+        .card-top-red-line {
+            position: relative;
         }
-        .mattress-feature {
-            transition: all .3s ease;
+        .card-top-red-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 3px;
+            background-color: #E53E3E;
+            border-radius: 9999px;
         }
-        .mattress-feature:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0,0,0,.12);
+
+        /* Subtle glow effects */
+        .hero-glow {
+            background: radial-gradient(circle at 10% 20%, rgba(229, 62, 62, 0.06) 0%, transparent 45%);
         }
     </style>
 </head>
 
-<body class="font-sans text-gray-800">
+<body class="font-sans text-brand-dark bg-brand-bg bg-grid-pattern antialiased selection:bg-brand-red selection:text-white">
 
-<!-- ================= HEADER ================= -->
-<header class="bg-white shadow-md sticky top-0 z-50">
-    <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold text-primary">
-            <span class="text-accent">KNK</span> Mattress
-        </a>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/918248824200?text=Hi%20KNK%20Mattress,%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20handmade%20kapok%20mattress"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+   aria-label="Direct WhatsApp Order">
+    <i class="fab fa-whatsapp text-2xl"></i>
+</a>
 
-        <div class="hidden md:flex space-x-8">
-            <a href="#" class="font-medium hover:text-accent">Home</a>
-            <a href="#products" class="font-medium hover:text-accent">Products</a>
-            <a href="#about" class="font-medium hover:text-accent">About</a>
-            <a href="#contact" class="font-medium hover:text-accent">Contact</a>
-            <a href="#contact" class="font-medium hover:text-accent">TEST</a>
-        </div>
-
-        <div class="flex items-center space-x-4">
-            <a
-                href="https://wa.me/918248824200?text=Hi%20KNK%20Mattress,%20I%20would%20like%20to%20place%20an%20order"
-                target="_blank"
-                class="p-2 text-green-500 hover:text-green-600"
-                aria-label="Chat on WhatsApp">
-                <i class="fab fa-whatsapp text-2xl"></i>
+<!-- ================= NAVIGATION HEADER ================= -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-brand-red flex items-center justify-center text-white font-extrabold text-xl shadow-sm">
+                    K
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold tracking-tight text-brand-dark leading-none">
+                        knk <span class="text-brand-gray font-normal">mattress</span>
+                    </span>
+                    <span class="text-[9px] tracking-widest text-brand-gray uppercase font-semibold mt-0.5">Handmade Since 1999</span>
+                </div>
             </a>
 
-            <button class="md:hidden p-2" id="menu-toggle">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
-    </nav>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex space-x-8 items-center font-medium text-sm text-brand-dark">
+                <div class="relative group">
+                    <button class="hover:text-brand-red transition-colors flex items-center gap-1 py-2">
+                        Products <i class="fas fa-chevron-down text-[10px] text-gray-400 group-hover:text-brand-red"></i>
+                    </button>
+                    <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-100 rounded-xl shadow-xl py-2 hidden group-hover:block transition-all">
+                        <a href="#products" class="block px-4 py-2 text-xs font-semibold hover:bg-brand-red-light hover:text-brand-red">Orthopedic Series</a>
+                        <a href="#products" class="block px-4 py-2 text-xs font-semibold hover:bg-brand-red-light hover:text-brand-red">Kapok Pure Fiber</a>
+                        <a href="#calculator" class="block px-4 py-2 text-xs font-semibold hover:bg-brand-red-light hover:text-brand-red">Custom Sizes</a>
+                    </div>
+                </div>
+                <a href="#kapok-tech" class="hover:text-brand-red transition-colors">Kapok Fiber</a>
+                <a href="#calculator" class="hover:text-brand-red transition-colors">Calculator</a>
+                <a href="#about" class="hover:text-brand-red transition-colors">About</a>
+                <a href="#faq" class="hover:text-brand-red transition-colors">FAQs</a>
+            </nav>
 
-    <div class="md:hidden hidden bg-white px-4 py-2 shadow-md" id="mobile-menu">
-        <a href="#" class="block py-2 hover:text-accent">Home</a>
-        <a href="#products" class="block py-2 hover:text-accent">Products</a>
-        <a href="#about" class="block py-2 hover:text-accent">About</a>
-        <a href="#contact" class="block py-2 hover:text-accent">Contact</a>
+            <!-- Red CTA Button -->
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md">
+                    Get a quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="p-2 text-brand-dark focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+        <a href="#products" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-gray-50">Products</a>
+        <a href="#kapok-tech" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-gray-50">Kapok Fiber</a>
+        <a href="#calculator" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-gray-50">Custom Calculator</a>
+        <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-gray-50">About Us</a>
+        <a href="#contact" class="mobile-nav-link block w-full text-center bg-brand-red text-white py-3 rounded-full font-semibold mt-4">
+            Get a quote
+        </a>
     </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero-bg bg-cover bg-center text-white py-24">
-    <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-            Handmade Comfort Since 1999
-        </h1>
-        <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Natural kapok fiber mattresses crafted for healthy and restful sleep
-        </p>
-        <a href="#products"
-           class="bg-accent hover:bg-yellow-500 text-primary font-bold py-3 px-8 rounded-full transition">
-            View Products
-        </a>
+<!-- ================= HERO SECTION ================= -->
+<section class="relative py-12 lg:py-20 hero-glow overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-6 space-y-6">
+                <!-- Tagline Badge -->
+                <div class="flex items-center space-x-2">
+                    <span class="h-px w-6 bg-brand-red"></span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-red">
+                        ISO 9001:2015 CERTIFIED CRAFTSMANSHIP
+                    </span>
+                </div>
+
+                <!-- Main Bold Headline with Red Accent -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-[1.1]">
+                    Engineering the future of the <span class="text-brand-red">sleeping industry</span>
+                </h1>
+
+                <!-- Subtitle Description -->
+                <p class="text-lg text-brand-gray font-normal leading-relaxed max-w-xl">
+                    KNK Natural Kapok Fiber™ retrofits, artisan-level handmade mattresses and custom size sleeping solutions — from single cots to master suites.
+                </p>
+
+                <!-- Dual Action Pill Buttons -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#products" class="bg-brand-red hover:bg-brand-red-hover text-white px-7 py-3.5 rounded-full text-sm font-bold transition-all shadow-md flex items-center gap-2">
+                        <span>Explore Collection</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="#contact" class="bg-white border border-gray-300 hover:border-brand-dark text-brand-dark px-7 py-3.5 rounded-full text-sm font-semibold transition-all">
+                        Request a quote
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Modern Floating Card Showcase -->
+            <div class="lg:col-span-6">
+                <div class="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200/80 shadow-2xl card-top-red-line relative">
+                    
+                    <!-- Product Image Container -->
+                    <div class="bg-brand-bg rounded-2xl p-6 flex items-center justify-center min-h-[260px] border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=800&auto=format&fit=crop" 
+                             alt="KNK Kapok Fiber Mattress Showcase" 
+                             class="rounded-xl shadow-lg object-cover w-full h-60">
+                    </div>
+
+                    <!-- Tech Spec Details -->
+                    <div class="mt-6 space-y-3">
+                        <span class="text-[11px] font-extrabold uppercase tracking-widest text-brand-red block">
+                            KNK KAPOK FIBER™ RETROFITS
+                        </span>
+                        
+                        <h3 class="text-2xl font-bold text-brand-dark">
+                            Organic Spine Upgrade MAXX
+                        </h3>
+                        
+                        <p class="text-xs font-semibold text-gray-400 tracking-wide uppercase">
+                            MODEL • KNK-72 • KNK-75 • KNK-78 • CUSTOM SIZES
+                        </p>
+
+                        <p class="text-xs text-brand-gray leading-relaxed pt-1">
+                            Eliminates chemical memory foam entirely — 100% natural Kapok Silk-Cotton + Hand-Tufted High-Density Support Core, breathable thermoregulation, and all-in-one organic build.
+                        </p>
+
+                        <div class="pt-2">
+                            <a href="#calculator" class="inline-flex items-center text-xs font-bold text-brand-red hover:text-brand-red-hover gap-1">
+                                <span>Calculate custom size</span>
+                                <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
-<!-- ================= PRODUCTS ================= -->
-<section id="products" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Our Mattress Collection</h2>
+<!-- ================= STATS / HIGHLIGHTS BAR ================= -->
+<section class="py-10 bg-white border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+            <div class="border-l-2 border-brand-red pl-4">
+                <div class="text-3xl font-extrabold text-brand-dark">1999</div>
+                <p class="text-xs text-brand-gray font-medium mt-1">Established Craftsmanship</p>
+            </div>
+            <div class="border-l-2 border-brand-red pl-4">
+                <div class="text-3xl font-extrabold text-brand-dark">100%</div>
+                <p class="text-xs text-brand-gray font-medium mt-1">Natural Kapok Silk Cotton</p>
+            </div>
+            <div class="border-l-2 border-brand-red pl-4">
+                <div class="text-3xl font-extrabold text-brand-dark">25,000+</div>
+                <p class="text-xs text-brand-gray font-medium mt-1">Happy Sleepers Across India</p>
+            </div>
+            <div class="border-l-2 border-brand-red pl-4">
+                <div class="text-3xl font-extrabold text-brand-dark">0%</div>
+                <p class="text-xs text-brand-gray font-medium mt-1">Toxic Chemical Foam</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-lg shadow-md mattress-feature">
-                <img src="https://picsum.photos/600/400?random=201" class="w-full h-64 object-cover" alt="">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Orthopedic Mattress</h3>
-                    <p class="text-gray-600 mb-4">Back-supporting handmade mattress</p>
-                    <span class="text-2xl font-bold text-primary">₹15,499</span>
+<!-- ================= PRODUCTS COLLECTION ================= -->
+<section id="products" class="py-20 bg-brand-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="flex items-center justify-center space-x-2 mb-2">
+                <span class="h-px w-6 bg-brand-red"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">FEATURED SOLUTIONS</span>
+                <span class="h-px w-6 bg-brand-red"></span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">
+                High-Performance <span class="text-brand-red">Natural Mattresses</span>
+            </h2>
+            <p class="text-brand-gray mt-3 text-sm">Crafted for optimal orthopedic body support and zero chemical off-gassing.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Product Card 1 -->
+            <div class="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-lg card-top-red-line flex flex-col justify-between hover:-translate-y-1 transition-all">
+                <div>
+                    <div class="bg-brand-bg rounded-2xl h-52 overflow-hidden mb-6 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop" 
+                             alt="Orthopedic Support Series" 
+                             class="object-cover w-full h-full">
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brand-red">SERVO SUPPORT LINE</span>
+                    <h3 class="text-xl font-bold text-brand-dark mt-1 mb-2">Orthopedic Spine Align</h3>
+                    <p class="text-xs text-brand-gray leading-relaxed mb-4">
+                        Hand-stuffed dense kapok core designed to eliminate lumbar strain and posture curvature during sleep.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block uppercase font-bold">Starting price</span>
+                        <span class="text-xl font-extrabold text-brand-dark">₹15,499</span>
+                    </div>
+                    <a href="#calculator" class="bg-brand-red hover:bg-brand-red-hover text-white px-4 py-2 rounded-full text-xs font-bold transition-all">
+                        Configure
+                    </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md mattress-feature">
-                <img src="https://picsum.photos/600/400?random=202" class="w-full h-64 object-cover" alt="">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Kapok Fiber Mattress</h3>
-                    <p class="text-gray-600 mb-4">100% natural breathable filling</p>
-                    <span class="text-2xl font-bold text-primary">₹18,999</span>
+            <!-- Product Card 2 -->
+            <div class="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-lg card-top-red-line flex flex-col justify-between hover:-translate-y-1 transition-all">
+                <div>
+                    <div class="bg-brand-bg rounded-2xl h-52 overflow-hidden mb-6 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?q=80&w=800&auto=format&fit=crop" 
+                             alt="100% Pure Kapok Fiber" 
+                             class="object-cover w-full h-full">
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brand-red">ULTRA BREATHABLE</span>
+                    <h3 class="text-xl font-bold text-brand-dark mt-1 mb-2">Pure Kapok Cloud Luxe</h3>
+                    <p class="text-xs text-brand-gray leading-relaxed mb-4">
+                        100% wild kapok silk-cotton filling. Naturally thermoregulated and repellent to dust mites and allergens.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block uppercase font-bold">Starting price</span>
+                        <span class="text-xl font-extrabold text-brand-dark">₹18,999</span>
+                    </div>
+                    <a href="#calculator" class="bg-brand-red hover:bg-brand-red-hover text-white px-4 py-2 rounded-full text-xs font-bold transition-all">
+                        Configure
+                    </a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-md mattress-feature">
-                <img src="https://picsum.photos/600/400?random=203" class="w-full h-64 object-cover" alt="">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Custom Size Mattress</h3>
-                    <p class="text-gray-600 mb-4">Made to your exact size</p>
-                    <span class="text-2xl font-bold text-primary">Custom Price</span>
+            <!-- Product Card 3 -->
+            <div class="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-lg card-top-red-line flex flex-col justify-between hover:-translate-y-1 transition-all">
+                <div>
+                    <div class="bg-brand-bg rounded-2xl h-52 overflow-hidden mb-6 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=800&auto=format&fit=crop" 
+                             alt="Custom Artisan Dimensions" 
+                             class="object-cover w-full h-full">
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brand-red">TAILORED DIMENSIONS</span>
+                    <h3 class="text-xl font-bold text-brand-dark mt-1 mb-2">Custom Artisan Build</h3>
+                    <p class="text-xs text-brand-gray leading-relaxed mb-4">
+                        Hand-stitched to match non-standard wooden cot frames, vintage furniture, or explicit thickness demands.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-gray-400 block uppercase font-bold">Custom Quote</span>
+                        <span class="text-xl font-extrabold text-brand-dark">By Dimension</span>
+                    </div>
+                    <a href="#calculator" class="bg-brand-red hover:bg-brand-red-hover text-white px-4 py-2 rounded-full text-xs font-bold transition-all">
+                        Calculate
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="about-bg py-16">
-    <div class="container mx-auto px-4 max-w-4xl bg-white rounded-xl shadow-lg p-8">
-        <h2 class="text-3xl font-bold mb-6 text-primary">About KNK Mattress</h2>
+<!-- ================= INTERACTIVE CALCULATOR ================= -->
+<section id="calculator" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="flex items-center justify-center space-x-2 mb-2">
+                <span class="h-px w-6 bg-brand-red"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">INSTANT ESTIMATOR</span>
+                <span class="h-px w-6 bg-brand-red"></span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">
+                Custom Size & <span class="text-brand-red">Price Calculator</span>
+            </h2>
+            <p class="text-brand-gray mt-3 text-sm">Select your cot measurements to receive instant material weight and cost estimates.</p>
+        </div>
 
-        <p class="mb-4">
-            Founded in 1999, KNK Mattress is a family-run business specializing in
-            handmade mattresses using natural kapok fiber.
-        </p>
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Controls -->
+            <div class="lg:col-span-7 bg-brand-bg p-6 sm:p-8 rounded-3xl border border-gray-200 card-top-red-line">
+                <h3 class="text-lg font-bold text-brand-dark mb-6">1. Set Dimensions</h3>
 
-        <p class="mb-4">
-            Every mattress is crafted by skilled artisans ensuring durability,
-            breathability, and orthopedic comfort.
-        </p>
+                <!-- Presets -->
+                <div class="mb-6">
+                    <label class="block text-xs font-bold uppercase text-brand-gray mb-2">Standard Presets</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        <button type="button" onclick="setPreset(72, 36, 6)" class="preset-btn bg-white hover:border-brand-red border border-gray-200 py-2 rounded-xl text-xs font-bold transition-all">Single (72"x36")</button>
+                        <button type="button" onclick="setPreset(75, 48, 6)" class="preset-btn bg-white hover:border-brand-red border border-gray-200 py-2 rounded-xl text-xs font-bold transition-all">Double (75"x48")</button>
+                        <button type="button" onclick="setPreset(78, 60, 6)" class="preset-btn bg-white hover:border-brand-red border border-gray-200 py-2 rounded-xl text-xs font-bold transition-all">Queen (78"x60")</button>
+                        <button type="button" onclick="setPreset(78, 72, 6)" class="preset-btn bg-white hover:border-brand-red border border-gray-200 py-2 rounded-xl text-xs font-bold transition-all">King (78"x72")</button>
+                    </div>
+                </div>
 
-        <p class="mb-6">
-            Our goal is to preserve traditional craftsmanship while delivering
-            modern sleep comfort.
-        </p>
+                <!-- Sliders -->
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-2">
+                            <span>Length (Inches):</span>
+                            <span id="lengthVal" class="text-brand-red text-sm">75"</span>
+                        </div>
+                        <input type="range" id="lengthInput" min="60" max="84" value="75" step="1" class="w-full accent-brand-red h-2 bg-gray-200 rounded-lg cursor-pointer">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-2">
+                            <span>Width (Inches):</span>
+                            <span id="widthVal" class="text-brand-red text-sm">60"</span>
+                        </div>
+                        <input type="range" id="widthInput" min="30" max="84" value="60" step="1" class="w-full accent-brand-red h-2 bg-gray-200 rounded-lg cursor-pointer">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-brand-gray mb-2">Thickness</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <label class="thickness-card cursor-pointer border border-gray-200 bg-white rounded-xl p-3 text-center transition-all">
+                                <input type="radio" name="thickness" value="4" class="sr-only" onchange="calculatePrice()">
+                                <div class="text-sm font-bold">4 Inches</div>
+                                <div class="text-[10px] text-gray-400">Slim</div>
+                            </label>
+                            <label class="thickness-card cursor-pointer border-2 border-brand-red bg-white rounded-xl p-3 text-center transition-all">
+                                <input type="radio" name="thickness" value="6" checked class="sr-only" onchange="calculatePrice()">
+                                <div class="text-sm font-bold text-brand-red">6 Inches</div>
+                                <div class="text-[10px] text-gray-400">Standard</div>
+                            </label>
+                            <label class="thickness-card cursor-pointer border border-gray-200 bg-white rounded-xl p-3 text-center transition-all">
+                                <input type="radio" name="thickness" value="8" class="sr-only" onchange="calculatePrice()">
+                                <div class="text-sm font-bold">8 Inches</div>
+                                <div class="text-[10px] text-gray-400">Extra Firm</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specs Summary -->
+                <div class="mt-8 pt-6 border-t border-gray-200 grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                    <div class="bg-white p-3 rounded-xl border border-gray-100">
+                        <span class="text-[10px] text-gray-400 font-bold uppercase block">Raw Kapok</span>
+                        <span id="kapokWeightDisplay" class="text-base font-extrabold text-brand-dark">18.5 kg</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-gray-100">
+                        <span class="text-[10px] text-gray-400 font-bold uppercase block">Craft Lead Time</span>
+                        <span class="text-base font-extrabold text-brand-dark">2-3 Days</span>
+                    </div>
+                    <div class="bg-brand-red text-white p-3 rounded-xl col-span-2 sm:col-span-1">
+                        <span class="text-[10px] font-bold uppercase block opacity-90">Estimated Total</span>
+                        <span id="calculatedPriceDisplay" class="text-base font-extrabold">₹16,800</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquiry Form -->
+            <div id="contact" class="lg:col-span-5 bg-brand-dark text-white p-6 sm:p-8 rounded-3xl shadow-2xl">
+                <h3 class="text-xl font-bold mb-1">2. Request Order Quote</h3>
+                <p class="text-xs text-gray-400 mb-6">Our master artisans will verify your specs and respond on WhatsApp.</p>
+
+                <form id="orderForm" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase text-gray-300 mb-1">Full Name</label>
+                        <input type="text" id="custName" required placeholder="e.g. Nachi Appan" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 text-xs focus:outline-none focus:border-brand-red">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-gray-300 mb-1">Phone</label>
+                            <input type="tel" id="custPhone" required placeholder="Phone number" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 text-xs focus:outline-none focus:border-brand-red">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase text-gray-300 mb-1">Email</label>
+                            <input type="email" id="custEmail" required placeholder="Email address" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 text-xs focus:outline-none focus:border-brand-red">
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="finalLength">
+                    <input type="hidden" id="finalWidth">
+                    <input type="hidden" id="finalThickness">
+                    <input type="hidden" id="finalPrice">
+
+                    <button type="submit" class="w-full bg-brand-red hover:bg-brand-red-hover text-white font-bold py-3.5 rounded-full text-sm transition-all shadow-lg flex items-center justify-center gap-2 mt-4">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Submit Quote Request</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
     </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="py-16 bg-primary text-white">
-    <div class="container mx-auto px-4 max-w-5xl">
-        <h2 class="text-3xl font-bold text-center mb-10">Place Your Order</h2>
+<!-- ================= FAQS ACCORDION ================= -->
+<section id="faq" class="py-20 bg-brand-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div class="flex items-center justify-center space-x-2 mb-2">
+                <span class="h-px w-6 bg-brand-red"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">QUESTIONS</span>
+                <span class="h-px w-6 bg-brand-red"></span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Frequently Asked <span class="text-brand-red">Questions</span></h2>
+        </div>
 
-        <form id="orderForm" class="bg-white bg-opacity-10 p-8 rounded-xl">
-            <div class="grid md:grid-cols-2 gap-4">
-                <input id="name" required placeholder="Name"
-                    class="px-4 py-3 rounded-lg bg-white bg-opacity-20 w-full">
-                <input id="email" type="email" required placeholder="Email"
-                    class="px-4 py-3 rounded-lg bg-white bg-opacity-20 w-full">
-                <input id="length" type="number" required placeholder="Length (inches)"
-                    class="px-4 py-3 rounded-lg bg-white bg-opacity-20 w-full">
-                <input id="width" type="number" required placeholder="Width (inches)"
-                    class="px-4 py-3 rounded-lg bg-white bg-opacity-20 w-full">
+        <div class="space-y-4">
+            <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                <button class="faq-toggle w-full px-6 py-5 text-left font-bold text-brand-dark text-sm flex justify-between items-center">
+                    <span>What makes Kapok fiber superior to synthetic foam?</span>
+                    <i class="fas fa-chevron-down text-brand-red transition-transform"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all px-6 text-xs text-brand-gray leading-relaxed">
+                    <p class="pb-5">Kapok fiber is 100% organic, naturally breathable, and hypoallergenic. It contains no toxic chemicals or off-gassing petroleum foams, making it naturally cool and supportive for your back.</p>
+                </div>
             </div>
 
-            <button id="submitBtn"
-                class="w-full mt-6 bg-accent hover:bg-yellow-500 text-primary font-bold py-3 rounded-lg">
-                Submit Order
-            </button>
-        </form>
+            <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                <button class="faq-toggle w-full px-6 py-5 text-left font-bold text-brand-dark text-sm flex justify-between items-center">
+                    <span>How do I place a custom dimension order?</span>
+                    <i class="fas fa-chevron-down text-brand-red transition-transform"></i>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all px-6 text-xs text-brand-gray leading-relaxed">
+                    <p class="pb-5">Use the online calculator above to select your exact length, width, and thickness. Submitting your details directly connects you with our WhatsApp craft team for instant confirmation.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="bg-gray-900 text-white py-8 text-center">
-    <p class="text-gray-400">
-        © <span id="year"></span> KNK Mattress. All Rights Reserved.
-    </p>
+<footer class="bg-brand-dark text-white py-12 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded bg-brand-red text-white font-extrabold flex items-center justify-center text-lg">K</div>
+            <span class="font-bold text-lg">knk <span class="text-gray-400 font-normal">mattress</span></span>
+        </div>
+        <p class="text-xs text-gray-400">© <span id="year"></span> KNK Mattress. All Rights Reserved. ISO 9001:2015 Certified sleeping solutions.</p>
+        <div class="flex space-x-4 text-xs text-gray-400">
+            <a href="https://wa.me/918248824200" target="_blank" class="hover:text-brand-red"><i class="fab fa-whatsapp text-lg"></i></a>
+        </div>
+    </div>
 </footer>
 
-<!-- ================= JS ================= -->
+<!-- JavaScript Logic -->
 <script>
-/* Mobile Menu */
-document.getElementById("menu-toggle").onclick = () => {
-    document.getElementById("mobile-menu").classList.toggle("hidden");
-};
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Footer Year */
-document.getElementById("year").textContent = new Date().getFullYear();
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-/* Order Form */
-document.getElementById("orderForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const btn = document.getElementById("submitBtn");
-    btn.disabled = true;
-    btn.textContent = "Submitting...";
+    // Calculator Logic
+    const lengthInput = document.getElementById('lengthInput');
+    const widthInput = document.getElementById('widthInput');
+    const lengthVal = document.getElementById('lengthVal');
+    const widthVal = document.getElementById('widthVal');
+    const kapokWeightDisplay = document.getElementById('kapokWeightDisplay');
+    const calculatedPriceDisplay = document.getElementById('calculatedPriceDisplay');
 
-    const payload = {
-        name: name.value,
-        email: email.value,
-        length: length.value,
-        width: width.value,
-        order_time: new Date().toISOString()
-    };
-
-    try {
-        const res = await fetch("https://YOUR_API_GATEWAY_URL", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-            alert("Order submitted successfully!");
-            e.target.reset();
-        } else {
-            alert("Submission failed");
+    function getSelectedThickness() {
+        const radios = document.getElementsByName('thickness');
+        for (let radio of radios) {
+            if (radio.checked) return parseInt(radio.value);
         }
-    } catch {
-        alert("Network error");
+        return 6;
     }
 
-    btn.disabled = false;
-    btn.textContent = "Submit Order";
-});
+    function calculatePrice() {
+        const length = parseInt(lengthInput.value);
+        const width = parseInt(widthInput.value);
+        const thickness = getSelectedThickness();
+
+        lengthVal.textContent = `${length}"`;
+        widthVal.textContent = `${width}"`;
+
+        const cubicInches = length * width * thickness;
+        const estWeightKg = (cubicInches * 0.0038).toFixed(1);
+        const areaSqInches = length * width;
+        
+        let baseRate = 3.3;
+        if (thickness === 4) baseRate = 2.4;
+        if (thickness === 8) baseRate = 4.2;
+
+        let estimatedPrice = Math.round((areaSqInches * baseRate) / 100) * 100;
+        if (estimatedPrice < 6500) estimatedPrice = 6500;
+
+        kapokWeightDisplay.textContent = `${estWeightKg} kg`;
+        calculatedPriceDisplay.textContent = `₹${estimatedPrice.toLocaleString('en-IN')}`;
+
+        document.getElementById('finalLength').value = length;
+        document.getElementById('finalWidth').value = width;
+        document.getElementById('finalThickness').value = thickness;
+        document.getElementById('finalPrice').value = `₹${estimatedPrice.toLocaleString('en-IN')}`;
+
+        document.querySelectorAll('.thickness-card').forEach(card => {
+            const input = card.querySelector('input');
+            if (input && input.checked) {
+                card.classList.add('border-2', 'border-brand-red');
+                card.querySelector('div').classList.add('text-brand-red');
+            } else {
+                card.classList.remove('border-2', 'border-brand-red');
+                card.querySelector('div').classList.remove('text-brand-red');
+            }
+        });
+    }
+
+    function setPreset(l, w, t) {
+        lengthInput.value = l;
+        widthInput.value = w;
+        const radios = document.getElementsByName('thickness');
+        for (let radio of radios) radio.checked = (parseInt(radio.value) === t);
+        calculatePrice();
+    }
+
+    lengthInput.addEventListener('input', calculatePrice);
+    widthInput.addEventListener('input', calculatePrice);
+    calculatePrice();
+
+    // Order Form WhatsApp Handler
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('custName').value;
+        const phone = document.getElementById('custPhone').value;
+        const email = document.getElementById('custEmail').value;
+        const l = document.getElementById('finalLength').value;
+        const w = document.getElementById('finalWidth').value;
+        const t = document.getElementById('finalThickness').value;
+        const p = document.getElementById('finalPrice').value;
+
+        const msg = `Hi KNK Mattress! I would like to request a quote:
+• Name: ${name}
+• Phone: ${phone}
+• Email: ${email}
+• Specs: ${l}" L x ${w}" W x ${t}" H
+• Estimated Quote: ${p}`;
+
+        window.open(`https://wa.me/918248824200?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
 </script>
 
 </body>
